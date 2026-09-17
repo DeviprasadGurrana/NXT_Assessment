@@ -1,0 +1,69 @@
+{
+  "rubric_version": 1,
+  "target_learner": "12th-grade graduate, India, limited English vocabulary, non-English-medium background, zero prior AI/ML knowledge",
+  "checks": [
+    {
+      "id": "accurate_grounded",
+      "dimension": "accurate & grounded",
+      "statement": "Every factual claim about how RAG works (retrieval, embeddings, vector search, generation) is technically correct. No invented statistics, no invented tool/product names, no claim that cannot be traced to established RAG concepts.",
+      "fail_examples": [
+        "Says RAG 'trains a new model on your documents' (it does not, by default)",
+        "Invents a fake benchmark number like '94% more accurate'",
+        "Confuses fine-tuning with retrieval"
+      ],
+      "pass_rule": "PASS only if the evaluator LLM finds zero factual errors and zero unverifiable invented claims. Any single error = FAIL."
+    },
+    {
+      "id": "beginner_friendly_language",
+      "dimension": "beginner-friendly language",
+      "statement": "Sentences are short (mostly under ~20 words), use common everyday words, and avoid compound/nested clauses that require re-reading.",
+      "fail_examples": [
+        "Long academic sentences with multiple subordinate clauses",
+        "Word choices like 'ostensibly', 'paradigm', 'orthogonal' without simplification"
+      ],
+      "pass_rule": "PASS only if the evaluator finds no sentence that a learner with limited English vocabulary would need to re-read twice. Any such sentence = FAIL."
+    },
+    {
+      "id": "teaches_by_example",
+      "dimension": "teaches by example",
+      "statement": "The lesson includes at least one concrete, walked-through example (a real-feeling scenario, e.g. a chatbot answering from a company handbook) that shows the concept in action, not just an abstract definition.",
+      "fail_examples": [
+        "Only defines RAG in the abstract with no scenario",
+        "Mentions an example exists but doesn't actually walk through it step by step"
+      ],
+      "pass_rule": "PASS only if at least one fully worked example is present and traceable step-by-step. Zero examples, or an example that isn't actually walked through = FAIL."
+    },
+    {
+      "id": "no_unexplained_jargon",
+      "dimension": "clear, no unexplained jargon",
+      "statement": "Every technical term used (e.g. embedding, vector database, token, LLM, retrieval, hallucination) is defined in plain language at first use, before or immediately after it appears.",
+      "fail_examples": [
+        "Uses 'embedding' without ever explaining what it means",
+        "Defines a term once but then uses 3 more undefined terms later"
+      ],
+      "pass_rule": "PASS only if every technical term has a plain-language explanation at first use. Even one undefined term = FAIL."
+    },
+    {
+      "id": "covers_key_points",
+      "dimension": "covers the key points",
+      "statement": "The lesson explicitly covers all three required pillars: (1) WHAT RAG is, (2) WHY it matters / what problem it solves, (3) HOW it works (the retrieve-then-generate mechanism, at least at a high level).",
+      "fail_examples": [
+        "Explains what RAG is but never explains why it's needed",
+        "Explains why it's useful but skips the how"
+      ],
+      "pass_rule": "PASS only if all three pillars are explicitly, identifiably present. Missing any one pillar = FAIL."
+    },
+    {
+      "id": "coherent_teaching_flow",
+      "dimension": "coherent, clear teaching flow",
+      "statement": "Ideas build in a logical teaching order (motivation -> concept -> mechanism -> example -> recap), each section can be understood using only what came before it, and there is a short recap/summary at the end.",
+      "fail_examples": [
+        "Introduces the example before explaining the concept it illustrates",
+        "No summary/recap at the end",
+        "Jumps between topics and back again"
+      ],
+      "pass_rule": "PASS only if a first-time reader could follow section-to-section without needing to jump ahead or re-read earlier sections, and a recap exists. Any violation = FAIL."
+    }
+  ],
+  "ship_rule": "The lesson SHIPS only when ALL checks above return PASS. Any single FAIL blocks shipping and triggers regeneration with the specific failure reasons fed back to the generator."
+}

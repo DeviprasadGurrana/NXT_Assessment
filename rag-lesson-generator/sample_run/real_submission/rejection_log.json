@@ -1,0 +1,35 @@
+{
+  "topic": "RAG (Retrieval-Augmented Generation)",
+  "shipped_clean": true,
+  "attempts_made": 2,
+  "log": [
+    {
+      "attempt": 1,
+      "overall_pass": false,
+      "failed_checks": [
+        {
+          "id": "no_unexplained_jargon",
+          "dimension": "clear, no unexplained jargon",
+          "reason": "Draft 1 used the terms 'LLM', 'vector database', and 'hallucination' in the How-it-works and Recap sections without ever defining them in plain language. A learner with no prior AI background would not know what these mean."
+        },
+        {
+          "id": "teaches_by_example",
+          "dimension": "teaches by example",
+          "reason": "Draft 1 described the leave-policy scenario in a single summarizing sentence ('the AI retrieves the relevant paragraph and answers') instead of walking through it as a numbered, step-by-step example a beginner could trace."
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "overall_pass": true,
+      "failed_checks": [],
+      "changes_made": [
+        "Added an explicit plain-language definition for 'LLM' the first time it is used ('a program trained on huge amounts of text to understand and write language').",
+        "Added an explicit plain-language definition for 'vector database' framed as a 'smart filing cabinet' analogy, contrasted with Ctrl+F search.",
+        "Added an explicit plain-language definition for 'hallucination' with a concrete description ('when an AI confidently states something false as if it were true').",
+        "Rewrote the worked example as a numbered 4-step walkthrough (Search -> Retrieve -> Combine -> Generate) with a concrete document, question, and answer at each step, plus an explicit 'Without RAG' contrast to make the value of retrieval visible."
+      ]
+    }
+  ],
+  "note": "This log documents the actual authoring pass for the submitted lesson (sample_run/real_submission/lesson_final.md), produced by manually running the generate-evaluate-regenerate loop against the rubric in rubric/rubric.json. For a live, code-executed run of the identical control flow (without an Anthropic API key), see sample_run/mock_demo/, which runs the real Pipeline/Generator/Evaluator classes end-to-end with a deterministic mock LLM standing in for the API call. To reproduce this exact run against the live API, run: python run.py --topic \"RAG (Retrieval-Augmented Generation)\" --out outputs"
+}

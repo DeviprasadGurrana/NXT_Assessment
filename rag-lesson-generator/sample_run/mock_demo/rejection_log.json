@@ -1,0 +1,43 @@
+{
+  "topic": "RAG (Retrieval-Augmented Generation)",
+  "shipped_clean": true,
+  "attempts_made": 2,
+  "log": [
+    {
+      "attempt": 1,
+      "overall_pass": false,
+      "failed_checks": [
+        {
+          "id": "beginner_friendly_language",
+          "dimension": "beginner-friendly language",
+          "reason": "Sentence 'RAG is a technique where an LLM uses an embedding to search a vector store' is dense and uses undefined jargon in one breath."
+        },
+        {
+          "id": "teaches_by_example",
+          "dimension": "teaches by example",
+          "reason": "The example section mentions a support bot but never walks through the steps - it's a one-line summary, not a worked example."
+        },
+        {
+          "id": "no_unexplained_jargon",
+          "dimension": "clear, no unexplained jargon",
+          "reason": "Terms 'embedding', 'vector store', 'cosine similarity', 'context window' are all used with zero plain-language explanation."
+        },
+        {
+          "id": "covers_key_points",
+          "dimension": "covers the key points",
+          "reason": "The lesson explains WHAT and HOW but never explains WHY RAG matters or what problem it solves."
+        },
+        {
+          "id": "coherent_teaching_flow",
+          "dimension": "coherent, clear teaching flow",
+          "reason": "No motivation/why section before the concept, and the recap is only two words per bullet, not a real summary."
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "overall_pass": true,
+      "failed_checks": []
+    }
+  ]
+}
